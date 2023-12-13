@@ -1,0 +1,8 @@
+CONTEXTO=/Users/USER/Desktop/examenmorgui
+IDRSA=${CONTEXTO}/claves
+ADMIN=USER
+TZ=Europe/Madrid
+
+USUARIO=taller
+PASSWD=pswtaller
+APP=taller/web

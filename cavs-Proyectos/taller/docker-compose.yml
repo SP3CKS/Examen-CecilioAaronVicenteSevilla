@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  s1:
+    container_name: taller1
+    image : img-base
+    env_file:
+      - ./.environment
+    build:
+      context: ${CONTEXTO}
+      dockerfiles: ./dockerfiles/base/Dockerfile
+      args:
+      - CONTEXTO1=${CONTEXTO}
+      - TZ1=${TZ}
+      - WEB1=${APP}
+      - IDRSA1=${IDRSA}
+    volumes:
+      - ./logs:/root/logs
