@@ -15,18 +15,18 @@ services:
     container_name: $CAVStallerX2
     image: $CAVSbase
     environment:
-      - DOMINIO=$CAVSitaller.es
+      - DOMINIO=$CAVStaller.es
       - NAMEHOST=$cavstaller2
     networks:
       my_network:
         ipv4_address: 172.80.10.2 
 
   sv_taller3:
-    container_name: $CAVSvtaller
+    container_name: $CAVSvtallerX3
     image: $CAVSbase
     environment:
-      - DOMINIO=$CAVSMitaller.es
-      - NAMEHOST=$CAVSvtaller3
+      - DOMINIO=$CAVStaller.es
+      - NAMEHOST=$CAVStaller3
     networks:
       my_network:
         ipv4_address: 172.80.10.3
