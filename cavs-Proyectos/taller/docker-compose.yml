@@ -1,17 +1,40 @@
-version: "3.8"
+version: '3.8'
+
 services:
-  s1:
-    container_name: taller1
-    image : img-base
-    env_file:
-      - ./.environment
-    build:
-      context: ${CONTEXTO}
-      dockerfiles: ./dockerfiles/base/Dockerfile
-      args:
-      - CONTEXTO1=${CONTEXTO}
-      - TZ1=${TZ}
-      - WEB1=${APP}
-      - IDRSA1=${IDRSA}
-    volumes:
-      - ./logs:/root/logs
+  sv_taller1:
+    container_name: $CAVStallerX1
+    image: $CAVSbase
+    environment:
+      - DOMINIO=$CAVStaller.es
+      - NAMEHOST=$CAVStaller1
+    networks:
+      my_network:
+        ipv4_address: 172.80.10.1
+
+  sv_taller2:
+    container_name: $CAVStallerX2
+    image: $CAVSbase
+    environment:
+      - DOMINIO=$CAVSitaller.es
+      - NAMEHOST=$cavstaller2
+    networks:
+      my_network:
+        ipv4_address: 172.80.10.2 
+
+  sv_taller3:
+    container_name: $CAVSvtaller
+    image: $CAVSbase
+    environment:
+      - DOMINIO=$CAVSMitaller.es
+      - NAMEHOST=$CAVSvtaller3
+    networks:
+      my_network:
+        ipv4_address: 172.80.10.3
+
+networks:
+  my_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.80.10.0/24
